@@ -89,7 +89,3 @@ o.diffopt = {
   "algorithm:histogram",
   vim.fn.has("nvim-0.12") == 1 and "inline:char" or "linematch:60",
 }
-
--- Misc
-vim.lsp.set_log_level("off")
-
