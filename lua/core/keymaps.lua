@@ -25,6 +25,11 @@ vim.keymap.set("n", "<leader>/", ":nohlsearch<CR>", vim.tbl_extend("force", opts
 -- ToggleTerm
 vim.keymap.set("n", "<A-t>", ":ToggleTerm<CR>", vim.tbl_extend("force", opts, { desc = "Toggle terminal" }))
 
+-- Save and quit all tabs
+vim.keymap.set({ "n", "i" }, "<S-Esc>", function()
+    vim.cmd("wqa")
+end, { noremap = true, silent = true, desc = "Save all buffers and quit" })
+
 -- Buffer close with prompt
 vim.keymap.set("n", "<leader>x", function()
     local bufnr = vim.api.nvim_get_current_buf()
