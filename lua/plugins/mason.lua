@@ -2,6 +2,7 @@
 return {
     "williamboman/mason.nvim",
     cmd = { "Mason", "MasonInstall", "MasonUpdate", "MasonUninstall" },
+    cond = not _G.NVIM_LIGHT_MODE,
     dependencies = {
         "williamboman/mason-lspconfig.nvim",
     },

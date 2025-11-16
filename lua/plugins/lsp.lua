@@ -2,10 +2,11 @@
 return {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
+    cond = not _G.NVIM_LIGHT_MODE,
     dependencies = {
-        "hrsh7th/cmp-nvim-lsp",
-        "williamboman/mason.nvim",
-        "williamboman/mason-lspconfig.nvim",
+        { "hrsh7th/cmp-nvim-lsp", cond = not _G.NVIM_LIGHT_MODE },
+        { "williamboman/mason.nvim", cond = not _G.NVIM_LIGHT_MODE },
+        { "williamboman/mason-lspconfig.nvim", cond = not _G.NVIM_LIGHT_MODE },
     },
     config = function()
         vim.api.nvim_set_hl(0, "DiagnosticVirtualTextError", { fg = "#ff7b7b", bg = nil })

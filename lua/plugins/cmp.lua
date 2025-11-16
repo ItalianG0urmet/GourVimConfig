@@ -10,6 +10,7 @@ return {
         "rafamadriz/friendly-snippets",
     },
     event = { "InsertEnter", "CmdlineEnter" },
+    cond = not _G.NVIM_LIGHT_MODE,
     config = function()
         local cmp = require("cmp")
         local luasnip = require("luasnip")
