@@ -89,3 +89,17 @@ o.diffopt = {
   "algorithm:histogram",
   vim.fn.has("nvim-0.12") == 1 and "inline:char" or "linematch:60",
 }
+
+-- Disable relative number in insert mode
+vim.api.nvim_create_autocmd("InsertEnter", {
+    callback = function()
+        vim.opt.relativenumber = false
+    end,
+})
+
+vim.api.nvim_create_autocmd("InsertLeave", {
+    callback = function()
+        vim.opt.relativenumber = true
+    end,
+})
+
