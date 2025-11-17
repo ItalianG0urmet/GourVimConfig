@@ -91,15 +91,35 @@ o.diffopt = {
 }
 
 -- Disable relative number in insert mode
+local group = vim.api.nvim_create_augroup("SmartRelativeNumber", {})
+local was_relative = false
+
 vim.api.nvim_create_autocmd("InsertEnter", {
+    group = group,
     callback = function()
-        vim.opt.relativenumber = false
+        -- non fare niente nel menu Alpha
+        if vim.bo.filetype == "alpha" then
+            return
+        end
+
+        if vim.wo.relativenumber then
+            was_relative = true
+            vim.wo.relativenumber = false
+        end
     end,
 })
 
 vim.api.nvim_create_autocmd("InsertLeave", {
+    group = group,
     callback = function()
-        vim.opt.relativenumber = true
+        -- non fare niente nel menu Alpha
+        if vim.bo.filetype == "alpha" then
+            return
+        end
+
+        if was_relative then
+            vim.wo.relativenumber = true
+        end
     end,
 })
 
