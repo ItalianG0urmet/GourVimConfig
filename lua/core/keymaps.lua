@@ -30,6 +30,17 @@ vim.keymap.set({ "n", "i" }, "<S-Esc>", function()
     vim.cmd("wqa")
 end, { noremap = true, silent = true, desc = "Save all buffers and quit" })
 
+-- Split screen
+vim.keymap.set("n", "<leader>j", ":split<CR>", vim.tbl_extend("force", opts, { desc = "Open horizontal split (bottom)" }))
+vim.keymap.set("n", "<leader>l", ":vsplit<CR>", vim.tbl_extend("force", opts, { desc = "Open vertical split (right)" }))
+vim.keymap.set("n", "<leader>k", ":close<CR>", vim.tbl_extend("force", opts, { desc = "Close window" }))
+
+-- Move between windows
+vim.keymap.set("n", "<C-h>", "<C-w>h", { noremap = true, silent = true, desc = "Move to left window" })
+vim.keymap.set("n", "<C-l>", "<C-w>l", { noremap = true, silent = true, desc = "Move to right window" })
+vim.keymap.set("n", "<C-j>", "<C-w>j", { noremap = true, silent = true, desc = "Move to bottom window" })
+vim.keymap.set("n", "<C-k>", "<C-w>k", { noremap = true, silent = true, desc = "Move to top window" })
+
 -- Buffer close with prompt
 vim.keymap.set("n", "<leader>x", function()
     local bufnr = vim.api.nvim_get_current_buf()
