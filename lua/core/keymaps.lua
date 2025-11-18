@@ -3,11 +3,13 @@ vim.g.mapleader = " "
 local opts = { noremap = true, silent = true }
 
 -- LSP
-vim.keymap.set("n", "<leader>d", function() vim.lsp.buf.definition() end, vim.tbl_extend("force", opts, { desc = "LSP: Go to definition" }))
-vim.keymap.set("n", "<leader>D", function() vim.lsp.buf.declaration() end, vim.tbl_extend("force", opts, { desc = "LSP: Go to declaration" }))
-vim.keymap.set("n", "<leader>i", function() vim.lsp.buf.implementation() end, vim.tbl_extend("force", opts, { desc = "LSP: Go to implementation" }))
-vim.keymap.set("n", "<leader>r", function() vim.lsp.buf.rename() end, vim.tbl_extend("force", opts, { desc = "LSP: Rename symbol" }))
-vim.keymap.set("n", "<leader>q", function() vim.lsp.buf.code_action() end, vim.tbl_extend("force", opts, { desc = "LSP: Code actions" }))
+if not _G.NVIM_LIGHT_MODE then
+    vim.keymap.set("n", "<leader>d", function() vim.lsp.buf.definition() end, vim.tbl_extend("force", opts, { desc = "LSP: Go to definition" }))
+    vim.keymap.set("n", "<leader>D", function() vim.lsp.buf.declaration() end, vim.tbl_extend("force", opts, { desc = "LSP: Go to declaration" }))
+    vim.keymap.set("n", "<leader>i", function() vim.lsp.buf.implementation() end, vim.tbl_extend("force", opts, { desc = "LSP: Go to implementation" }))
+    vim.keymap.set("n", "<leader>r", function() vim.lsp.buf.rename() end, vim.tbl_extend("force", opts, { desc = "LSP: Rename symbol" }))
+    vim.keymap.set("n", "<leader>q", function() vim.lsp.buf.code_action() end, vim.tbl_extend("force", opts, { desc = "LSP: Code actions" }))
+end
 
 -- Buffer navigation & save
 vim.keymap.set("n", "<Tab>", ":bnext<CR>", vim.tbl_extend("force", opts, { desc = "Switch to next buffer" }))
