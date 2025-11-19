@@ -22,6 +22,9 @@ return {
             "NotifyBorder",
         }
 
+        vim.cmd('hi! VertSplit    guifg=#141414 guibg=NONE')
+        vim.cmd('hi! WinSeparator guifg=#141414 guibg=NONE')
+
         for _, group in ipairs(border_groups) do
             vim.api.nvim_set_hl(0, group, { fg = "none", bg = "none" })
         end
