@@ -43,6 +43,12 @@ vim.keymap.set("n", "<C-l>", "<C-w>l", { noremap = true, silent = true, desc = "
 vim.keymap.set("n", "<C-j>", "<C-w>j", { noremap = true, silent = true, desc = "Move to bottom window" })
 vim.keymap.set("n", "<C-k>", "<C-w>k", { noremap = true, silent = true, desc = "Move to top window" })
 
+-- Resize splits
+vim.keymap.set("n", "<C-M-l>", ":vertical resize -2<CR>", { noremap = true, silent = true, desc = "Resize split left" })
+vim.keymap.set("n", "<C-M-h>", ":vertical resize +2<CR>", { noremap = true, silent = true, desc = "Resize split right" })
+vim.keymap.set("n", "<C-M-j>", ":resize -2<CR>", { noremap = true, silent = true, desc = "Resize split down" })
+vim.keymap.set("n", "<C-M-k>", ":resize +2<CR>", { noremap = true, silent = true, desc = "Resize split up" })
+
 -- Buffer close with prompt
 vim.keymap.set("n", "<leader>x", function()
     local bufnr = vim.api.nvim_get_current_buf()
