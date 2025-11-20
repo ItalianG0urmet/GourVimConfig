@@ -1,6 +1,7 @@
 -- plugins/which-key.lua
 return {
   "folke/which-key.nvim",
+  cond = not _G.NVIM_LIGHT_MODE,
   event = "VeryLazy",
   opts = {
     preset = "helix",
