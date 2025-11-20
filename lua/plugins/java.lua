@@ -53,6 +53,7 @@ end
 return {
   "mfussenegger/nvim-jdtls",
   ft = "java",
+  cond = not _G.NVIM_LIGHT_MODE,
   dependencies = {
     "neovim/nvim-lspconfig",
     "williamboman/mason.nvim",
