@@ -4,7 +4,6 @@ return {
     version = "*",
     lazy = true,
     cmd = { "NvimTreeToggle", "NvimTreeOpen", "NvimTreeFindFile" },
-    dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
         local width = math.floor(vim.o.columns * 0.20)
         local height = math.floor(vim.o.lines * 0.50)
@@ -32,23 +31,10 @@ return {
                 indent_markers = { enable = true },
                 icons = {
                     show = {
-                        file = true,
+                        file = false,
                         folder = true,
                         folder_arrow = true,
                         git = false,
-                    },
-                    glyphs = {
-                        default = "",
-                        symlink = "🔗",
-                        folder = {
-                            default = "📁",
-                            open = "📂",
-                            empty = "📁",
-                            empty_open = "📂",
-                            arrow_closed = "▸",
-                            arrow_open = "▾",
-                            symlink = "🔗",
-                        },
                     },
                 },
             },

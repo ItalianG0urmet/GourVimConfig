@@ -24,15 +24,10 @@ return {
         mlc.setup({
             ensure_installed = {
                 "clangd",
+                "cmake",
                 "jdtls",
-                "rust_analyzer",
                 "pyright",
                 "lua_ls",
-                "bashls",
-                "jsonls",
-                "yamlls",
-                "cmake",
-                "kotlin_language_server",
             },
             automatic_installation = false,
         })

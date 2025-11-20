@@ -1,9 +1,7 @@
 -- plugin/apha.lua
 return {
     'goolord/alpha-nvim',
-    dependencies = {
-        'nvim-tree/nvim-web-devicons',
-    },
+    dependencies = {},
     event = 'VimEnter',
     config = function()
         local alpha = require 'alpha'

@@ -8,10 +8,9 @@ return {
             highlight = { enable = true },
             indent    = { enable = true },
             ensure_installed = {
-                "c", "cpp", "java", "rust", "python", "lua", "bash",
-                "json", "yaml", "cmake", "kotlin", "asm", "regex",
+                "c", "cpp", "java", "python", "lua", "asm"
             },
-            auto_install = true,
+            auto_install = false,
             disable = function(_, buf)
                 return vim.api.nvim_buf_line_count(buf) > 20000
             end,

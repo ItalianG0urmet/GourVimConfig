@@ -1,8 +1,7 @@
 -- plugins/lualine.lua
 return {
     "nvim-lualine/lualine.nvim",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    event = "VeryLazy",
+    event = "VimEnter",
     config = function()
         local diff = function()
             local git_status = vim.b.gitsigns_status_dict
