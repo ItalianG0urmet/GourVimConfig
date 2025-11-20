@@ -2,7 +2,7 @@
 return {
     "akinsho/bufferline.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
-    event = "BufReadPre",
+    event = "BufReadPost",
     config = function()
         local ok, bufferline = pcall(require, "bufferline")
         if not ok or not bufferline then
