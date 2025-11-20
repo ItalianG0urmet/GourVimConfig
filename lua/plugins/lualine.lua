@@ -4,46 +4,6 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     event = "VeryLazy",
     config = function()
-        local fn = vim.fn
-
-        local function spell()
-            if vim.o.spell then
-                return string.format("[SPELL]")
-            end
-
-            return ""
-        end
-
-        local function mixed_indent()
-            if not vim.o.modifiable then
-                return ""
-            end
-
-            local space_pat = [[\v^ +]]
-            local tab_pat = [[\v^\t+]]
-            local space_indent = fn.search(space_pat, "nwc")
-            local tab_indent = fn.search(tab_pat, "nwc")
-            local mixed = (space_indent > 0 and tab_indent > 0)
-            local mixed_same_line
-            if not mixed then
-                mixed_same_line = fn.search([[\v^(\t+ | +\t)]], "nwc")
-                mixed = mixed_same_line > 0
-            end
-            if not mixed then
-                return ""
-            end
-            if mixed_same_line ~= nil and mixed_same_line > 0 then
-                return "MI:" .. mixed_same_line
-            end
-            local space_indent_cnt = fn.searchcount({ pattern = space_pat, max_count = 1e3 }).total
-            local tab_indent_cnt = fn.searchcount({ pattern = tab_pat, max_count = 1e3 }).total
-            if space_indent_cnt > tab_indent_cnt then
-                return "MI:" .. tab_indent
-            else
-                return "MI:" .. space_indent
-            end
-        end
-
         local diff = function()
             local git_status = vim.b.gitsigns_status_dict
             if git_status == nil then
@@ -58,7 +18,6 @@ return {
             return info
         end
 
-
         local ok, lualine = pcall(require, "lualine")
         if not ok or not lualine then
             return
@@ -68,7 +27,6 @@ return {
             options = {
                 icons_enabled = true,
                 theme = "auto",
-                component_separators = { left = "|", right = "|" },
                 section_separators = "",
                 disabled_filetypes = {},
                 always_divide_middle = true,
@@ -104,20 +62,12 @@ return {
                         "%S",
                         color = { gui = "bold", fg = "cyan" },
                     },
-                    {
-                        spell,
-                        color = { fg = "black", bg = "#a7c080" },
-                    },
                 },
                 lualine_x = {
                     {
                         "diagnostics",
                         sources = { "nvim_diagnostic" },
                         symbols = { error = "🆇 ", warn = "⚠️ ", info = "ℹ️ ", hint = " " },
-                    },
-                    {
-                        mixed_indent,
-                        color = "WarningMsg",
                     },
                 },
                 lualine_y = {
