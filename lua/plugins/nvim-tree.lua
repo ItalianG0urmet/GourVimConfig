@@ -27,7 +27,7 @@ return {
             },
             renderer = {
                 root_folder_label = false,
-                highlight_git = true,
+                highlight_git = false,
                 highlight_opened_files = "name",
                 indent_markers = { enable = true },
                 icons = {
@@ -56,8 +56,8 @@ return {
                 dotfiles = false,
             },
             git = {
-                enable = true,
-                ignore = false,
+                enable = false,
+                ignore = true,
             },
         })
     end,
