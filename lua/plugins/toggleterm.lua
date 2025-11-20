@@ -1,7 +1,7 @@
 -- plugins/toggleterm.lua
 return {
     "akinsho/toggleterm.nvim",
-    event = "VeryLazy",
+    cmd = { "ToggleTerm" },
     version = "*",
     config = function()
         require("toggleterm").setup{
